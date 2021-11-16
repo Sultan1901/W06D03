@@ -1,0 +1,7 @@
+[
+  { "id": "1", "name": "Sultan", "isFav": "true", "isDeleted": "true" },
+  { "id": "2", "name": "Ghada", "isFav": "false", "isDeleted": "true" },
+  { "id": "3", "name": "Ahmad", "isFav": "true", "isDeleted": "true" },
+  { "id": "4", "name": "Reem", "isFav": "false", "isdeleted": "true" },
+  { "id": "5", "name": "Naif", "isFav": "true", "isdeleted": "false" }
+]

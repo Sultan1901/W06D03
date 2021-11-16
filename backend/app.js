@@ -1,3 +1,4 @@
+const e = require("express");
 const express = require("express");
 const app = express();
 const PORT = 5000;
@@ -21,7 +22,7 @@ app.post("/add", (req, res) => {
   bro;
 });
 app.put("/update/:id", (req, res) => {
-  const bro1=bro.map((e) => {
+  const bro1 = bro.map((e) => {
     if (e.id == req.params.id) {
       return {
         id: e.id,
@@ -36,6 +37,19 @@ app.put("/update/:id", (req, res) => {
     bro;
   });
 });
+// Cant Delete
+// app.delete("/delete/:id", (req, res) => {
+//   const dd = bro.filter((d) => {
+//     if (d.id == req.params.id) {
+//       return dd;
+//     }
+//   });
+
+//   fs.writeFile("./bro.json", JSON.stringify(bro), (err, data) => {
+//     res.json(bro);
+//     bro;
+//   });
+// });
 
 app.listen(PORT, () => {
   console.log(`server on ${PORT}`);
