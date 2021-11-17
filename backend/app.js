@@ -1,4 +1,3 @@
-const e = require("express");
 const express = require("express");
 const app = express();
 const PORT = 5000;
@@ -37,19 +36,23 @@ app.put("/update/:id", (req, res) => {
     bro;
   });
 });
-// Cant Delete
-// app.delete("/delete/:id", (req, res) => {
-//   const dd = bro.filter((d) => {
-//     if (d.id == req.params.id) {
-//       return dd;
-//     }
-//   });
 
-//   fs.writeFile("./bro.json", JSON.stringify(bro), (err, data) => {
-//     res.json(bro);
-//     bro;
-//   });
-// });
+app.delete('/delete/:id',(req,res)=>{
+  let dd = bro.map((ele)=>{
+    if(ele.id == req.params.id){
+   
+    return{
+      id: ele.id,
+      name:ele.name,
+      isFav:ele.isFav,
+      isDel: "true"
+    }}
+  })
+  fs.writeFile("./bro.json", JSON.stringify(dd), (err, data) => {
+    res.json(bro);
+    bro;
+  });
+})
 
 app.listen(PORT, () => {
   console.log(`server on ${PORT}`);
