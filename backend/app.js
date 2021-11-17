@@ -1,6 +1,16 @@
+const e = require("express");
 const express = require("express");
 const app = express();
 const PORT = 5000;
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost:27017/todo',{useNewUrlParser:true});
+mongoose.connection
+   .once('open',()=>{
+     console.log('DB Connected');
+   })
+   .on('error',()=>{
+     console.log('err', err);
+   })
 const fs = require("fs");
 app.use(express.json());
 
@@ -40,17 +50,17 @@ app.put("/update/:id", (req, res) => {
 app.delete('/delete/:id',(req,res)=>{
   let dd = bro.map((ele)=>{
     if(ele.id == req.params.id){
-   
+    console.log(ele);
     return{
       id: ele.id,
       name:ele.name,
       isFav:ele.isFav,
       isDel: "true"
-    }}
-  })
+    }} else return ele
+  }) 
   fs.writeFile("./bro.json", JSON.stringify(dd), (err, data) => {
     res.json(bro);
-    bro;
+    
   });
 })
 
